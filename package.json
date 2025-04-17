@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@azure/communication-email": "^1.0.0",
     "@azure/cosmos": "^4.3.0",
     "axios": "^1.8.4",
+=======
+>>>>>>> 9108994d3ff281877e66a741fb03021c9920cad8
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
