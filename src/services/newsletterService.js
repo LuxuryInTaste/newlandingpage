@@ -1,22 +1,25 @@
-const AZURE_FUNCTION_URL = 'https://luxuryintaste.azurewebsites.net';
+const AZURE_FUNCTION_URL = import.meta.env.VITE_AZURE_FUNCTION_URL;
+const FUNCTION_CODE = import.meta.env.VITE_AZURE_FUNCTION_KEY;
 
 export const subscribeToNewsletter = async (email) => {
   try {
     console.log('Attempting to subscribe with email:', email);
-    
-    const response = await fetch(`${AZURE_FUNCTION_URL}/api/subscribe`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({ email })
-    });
+
+    const response = await fetch(
+      `${AZURE_FUNCTION_URL}/api/subscribe?code=${FUNCTION_CODE}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      }
+    );
 
     console.log('Response status:', response.status);
     console.log('Response headers:', Object.fromEntries(response.headers.entries()));
-    
-    // Get the response text first for debugging
+
     const responseText = await response.text();
     console.log('Raw response:', responseText);
 
@@ -45,10 +48,10 @@ export const subscribeToNewsletter = async (email) => {
       stack: error.stack,
       name: error.name
     });
-    
+
     return {
       success: false,
       message: error.message || 'An unexpected error occurred. Please try again later.'
     };
   }
-}; 
+};
