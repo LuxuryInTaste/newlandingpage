@@ -1,4 +1,4 @@
-const AZURE_FUNCTION_URL = 'https://your-function-app.azurewebsites.net';
+const AZURE_FUNCTION_URL = 'https://luxuryintaste.azurewebsites.net';
 
 export const subscribeToNewsletter = async (email) => {
   try {
