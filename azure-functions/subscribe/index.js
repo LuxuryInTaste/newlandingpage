@@ -79,7 +79,7 @@ module.exports = async function (context, req) {
         };
 
         context.log('📨 Sending confirmation email...');
-        await emailClient.send(emailMessage);
+        await emailClient.beginSend(emailMessage);
         context.log('✅ Confirmation email sent');
 
         context.res = {
