@@ -80,6 +80,7 @@ module.exports = async function (context, req) {
 
         context.log('📨 Sending confirmation email...');
         await emailClient.beginSend(emailMessage);
+        const result = await poller.pollUntilDone();
         context.log('✅ Confirmation email sent');
 
         context.res = {
