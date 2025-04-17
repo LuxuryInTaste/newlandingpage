@@ -1,9 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './Newsletter.css';
-<<<<<<< HEAD
 import NewsletterPopup from './NewsletterPopup';
-=======
->>>>>>> 9108994d3ff281877e66a741fb03021c9920cad8
 import sustainabilityImg from '../../assets/sustainable-fashion-trends.png';
 import luxuryImg from '../../assets/luxury-fashion.png';
 import fashionImg from '../../assets/trendy-fast-fashion.png';
@@ -12,10 +9,7 @@ import sneakerImg from '../../assets/sustainable-group.png';
 const Newsletter = () => {
   const scrollContainerRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
-<<<<<<< HEAD
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-=======
->>>>>>> 9108994d3ff281877e66a741fb03021c9920cad8
 
   const cards = [
     {
@@ -72,11 +66,7 @@ const Newsletter = () => {
         <p>Weekly short updates on luxury, sustainable, fast fashion and the sneaker market</p>
         <div className="cta-buttons">
           <button className="explore-btn">Explore Newsletter</button>
-<<<<<<< HEAD
           <button className="subscribe-btn" onClick={() => setIsPopupOpen(true)}>Subscribe Now</button>
-=======
-          <button className="subscribe-btn">Subscribe Now</button>
->>>>>>> 9108994d3ff281877e66a741fb03021c9920cad8
         </div>
       </div>
 
@@ -104,16 +94,13 @@ const Newsletter = () => {
           <span>›</span>
         </button>
       </div>
-<<<<<<< HEAD
 
       <NewsletterPopup 
         isOpen={isPopupOpen}
         onClose={() => setIsPopupOpen(false)}
       />
-=======
->>>>>>> 9108994d3ff281877e66a741fb03021c9920cad8
     </div>
   );
 };
 
-export default Newsletter; 
+export default Newsletter;
