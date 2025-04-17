@@ -6,7 +6,7 @@ export const subscribeToNewsletter = async (email) => {
     console.log('Attempting to subscribe with email:', email);
 
     const response = await fetch(
-      `${AZURE_FUNCTION_URL}/api/subscribe?code=${FUNCTION_CODE}`,
+      `${AZURE_FUNCTION_URL}/api/subscribers?code=${FUNCTION_CODE}`,
       {
         method: 'POST',
         headers: {
