@@ -19,7 +19,7 @@ module.exports = async function (context, req) {
         const cosmosEndpoint = process.env.COSMOS_DB_ENDPOINT;
         const cosmosKey = process.env.COSMOS_DB_KEY;
         const cosmosClient = new CosmosClient({ endpoint: cosmosEndpoint, key: cosmosKey });
-        const database = cosmosClient.database("newsletter-db");
+        const database = cosmosClient.database("luxuryintaste");
         const container = database.container("subscribers");
 
         // Find the subscriber
@@ -56,7 +56,8 @@ module.exports = async function (context, req) {
             }
         };
 
-        await emailClient.send(emailMessage);
+        const poller = await emailClient.beginSend(emailMessage);
+        const result = await poller.pollUntilDone();
 
         context.res = {
             status: 200,
