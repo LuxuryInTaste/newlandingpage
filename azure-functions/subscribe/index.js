@@ -86,14 +86,19 @@ module.exports = async function (context, req) {
 
         context.res = {
             status: 200,
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: { message: "Subscription successful! Please check your email to confirm." }
         };
-
     } catch (error) {
         context.log.error('❗️ Error during subscription process:', error);
         context.res = {
             status: 500,
-            body: { error: "An error occurred while processing your subscription" }
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: { message: "An error occurred while processing your subscription" }
         };
     }
 };

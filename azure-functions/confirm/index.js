@@ -61,14 +61,26 @@ module.exports = async function (context, req) {
 
         context.res = {
             status: 200,
-            body: { message: "Email confirmed successfully!" }
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: {
+                message: "Email confirmed successfully!"
+            }
         };
+        
 
     } catch (error) {
         context.log.error('Error processing confirmation:', error);
         context.res = {
             status: 500,
-            body: { error: "An error occurred while processing your confirmation" }
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: {
+                error: "An error occurred while processing your confirmation"
+            }
         };
     }
+    
 }; 
